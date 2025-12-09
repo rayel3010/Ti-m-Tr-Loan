@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiệm Trà Loan - Menu</title>
+  <meta name="description" content="Menu Tiệm Trà Loan - Trà sữa, trà trái cây, matcha, cà phê, sữa chua và nhiều topping ngon với tone xanh lá dễ chịu.">
+  <style>
+    :root {
+      --green-dark: #0b7a33;
+      --green: #12a24a;
+      --green-light: #e7f7ec;
+      --bg: #f6fbf7;
+      --text: #222;
+      --border: #e0eee3;
+      --accent: #ffd76a;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    body {
+      background: radial-gradient(circle at top, #ffffff 0, #f3fbf5 45%, #eef9f1 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #ffffff, #13b255);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .logo-text span:first-child {
+      font-weight: 800;
+      color: var(--green-dark);
+      font-size: 18px;
+      letter-spacing: 0.3px;
+    }
+    .logo-text span:last-child {
+      font-size: 12px;
+      color: #777;
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 13px;
+    }
+    .nav-phone {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--green-light);
+      color: var(--green-dark);
+    }
+    .nav-button {
+      border-radius: 999px;
+      padding: 7px 16px;
+      background: var(--green-dark);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    /* MAIN WRAPPER */
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 16px 32px;
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 22px;
+      margin-bottom: 26px;
+      align-items: center;
+    }
+    .hero-title {
+      font-size: 30px;
+      color: var(--green-dark);
+      margin-bottom: 6px;
+      letter-spacing: 0.4px;
+    }
+    .hero-sub {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 14px;
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .hero-tag {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px dashed #cde4d2;
+      color: var(--green-dark);
+    }
+    .hero-info {
+      font-size: 13px;
+      color: #666;
+    }
+    .hero-info strong {
+      color: var(--green-dark);
+    }
+    .hero-badge {
+      margin-top: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      background: #fff;
+      border-radius: 999px;
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+    }
+    .hero-image-card {
+      background: radial-gradient(circle at top, #dff9e8, #ffffff);
+      border-radius: 24px;
+      padding: 14px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+    }
+    .hero-image-main {
+      border-radius: 18px;
+      overflow: hidden;
+      height: 220px;
+      background-image: url("https://via.placeholder.com/800x500?text=Mat+tien+Tiem+Tra+Loan");
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-image-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 11px;
+    }
+    .hero-pill {
+      flex: 1;
+      border-radius: 12px;
+      padding: 6px 8px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--border);
+    }
+    .hero-pill strong {
+      display: block;
+      font-size: 12px;
+      color: var(--green-dark);
+    }
+
+    /* CATEGORY TABS */
+    .category-bar {
+      position: sticky;
+      top: 64px;
+      z-index: 10;
+      padding: 10px 0;
+      background: linear-gradient(to bottom, rgba(246, 251, 247, 0.97), rgba(246, 251, 247, 0.85));
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+    .category-scroll {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: thin;
+    }
+    .category-btn {
+      flex: 0 0 auto;
+      font-size: 13px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      border: 1px solid #cfe5d4;
+      background: #ffffff;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.17s ease;
+    }
+    .category-btn:hover {
+      border-color: var(--green-dark);
+    }
+    .category-btn.active {
+      background: var(--green-dark);
+      border-color: var(--green-dark);
+      color: #fff;
+      box-shadow: 0 6px 14px rgba(11, 122, 51, 0.25);
+    }
+
+    /* MENU GRID */
+    .menu-section-title {
+      font-size: 20px;
+      color: var(--green-dark);
+      margin-bottom: 10px;
+    }
+    .menu-section-desc {
+      font-size: 13px;
+      color: #777;
+      margin-bottom: 18px;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .item-card {
+      background: #fff;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+    .item-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.07);
+    }
+    .item-image {
+      height: 130px;
+      border-radius: 14px;
+      background-size: cover;
+      background-position: center;
+      background-color: #e9f6ed;
+    }
+    .item-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .item-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #222;
+    }
+    .item-tag {
+      font-size: 11px;
+      color: #888;
+    }
+    .item-price {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--green-dark);
+    }
+    .item-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #888;
+    }
+    .item-badge {
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: var(--green-light);
+      color: var(--green-dark);
+    }
+
+    /* CONTACT */
+    .contact-block {
+      margin-top: 32px;
+      border-radius: 20px;
+      padding: 16px 18px;
+      background: linear-gradient(135deg, #0b7a33, #16b456);
+      color: #fff;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .contact-left {
+      max-width: 540px;
+      font-size: 13px;
+    }
+    .contact-left h2 {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+    .contact-right {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13px;
+      min-width: 180px;
+    }
+    .contact-right a {
+      display: inline-flex;
+      justify-content: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      color: #fff;
+    }
+
+    footer {
+      padding: 16px;
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 820px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .hero-image-card {
+        order: -1;
+      }
+    }
+    @media (max-width: 640px) {
+      .nav-right {
+        font-size: 12px;
+      }
+      .hero-title {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div class="logo">
+      <div class="logo-icon">🧋</div>
+      <div class="logo-text">
+        <span>Tiệm Trà Loan</span>
+        <span>Trà sữa • Trà trái cây • Cà phê</span>
+      </div>
+    </div>
+    <div class="nav-right">
+      <div class="nav-phone">📞 0972.063.913 – 0908.000.987</div>
+      <a class="nav-button" href="tel:0972063913">Gọi đặt món</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1 class="hero-title">Menu Tiệm Trà Loan</h1>
+      <p class="hero-sub">
+        Thưởng thức trà sữa, trà trái cây, matcha & cà phê với tone xanh mát mắt và hương vị dễ thương.
+      </p>
+      <div class="hero-tags">
+        <div class="hero-tag">Trà sữa homemade</div>
+        <div class="hero-tag">Trà trái cây tươi</div>
+        <div class="hero-tag">Matcha • Latte • Cà phê</div>
+        <div class="hero-tag">Sữa chua & nhiều topping</div>
+      </div>
+      <p class="hero-info">
+        <strong>Địa chỉ:</strong> 42 Trần Bình Trọng, Ấp Hải Sơn, Xã Phước Hải. <br>
+        <strong>Giờ mở cửa:</strong> 7h00 – 22h00.
+      </p>
+      <div class="hero-badge">
+        🌿 Nguyên liệu chọn lọc, pha chế trong ngày • Phù hợp học sinh – sinh viên – gia đình
+      </div>
+    </div>
+    <div class="hero-image-card">
+      <!-- 👉 THAY HÌNH Ở ĐÂY: đổi link trong background-image thành hình mặt tiền quán của bạn -->
+      <div class="hero-image-main"></div>
+      <div class="hero-image-footer">
+        <div class="hero-pill">
+          <strong>Tiệm Trà Loan</strong>
+          Ship linh hoạt quanh khu vực Phước Hải & lân cận.
+        </div>
+        <div class="hero-pill">
+          <strong>Gọi là có</strong>
+          Chuẩn bị nhanh, giữ lạnh tốt cho những buổi học & họp mặt.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORY TABS -->
+  <section class="category-bar">
+    <div class="category-scroll">
+      <button class="category-btn active" data-category="all">Tất cả</button>
+      <button class="category-btn" data-category="trasua">Trà sữa</button>
+      <button class="category-btn" data-category="tratraicay">Trà trái cây</button>
+      <button class="category-btn" data-category="caphe">Cà phê</button>
+      <button class="category-btn" data-category="latte">Matcha / Latte</button>
+      <button class="category-btn" data-category="suachua">Sữa chua</button>
+      <button class="category-btn" data-category="topping">Topping</button>
+    </div>
+  </section>
+
+  <!-- MENU GRID -->
+  <section>
+    <h2 class="menu-section-title">Danh mục đồ uống</h2>
+    <p class="menu-section-desc">
+      Giá có thể thay đổi theo thời gian. Bạn có thể chỉnh lại tên & giá cho đúng với menu thực tế của quán.
+    </p>
+
+    <div class="menu-grid" id="menuGrid">
+      <!-- TRÀ SỮA -->
+      <div class="item-card" data-category="trasua">
+        <div class="item-image" style="background-image:url('https://via.placeholder.com/400x300?text=Tra+sua+truyen+thong');"></div>
+        <div class="item-info">
+          <div>
+            <div class="item-name">Trà sữa truyền thống</div>
+            <div class="item-tag">Đậm đà, topping tuỳ chọn</div>
+          </div>
+          <div class="item-price">25k</div>
+        </div>
+        <div class="item-foot">
+          <span class="item-badge">Best seller</span>
+          <span>Size M</span>
+        </div>
+      </div>
+
+      <div class="item-card" data-category="trasua">
+        <div class="item-image" style="background-image:url('https://via.placeholder.com/400x300?text=Tra+sua+Khoai+Mon');"></div>
+        <div class="item-info">
+          <div>
+            <div class="item-name">Trà sữa khoai môn</div>
+            <div class="item-tag">Béo nhẹ, thơm bùi</div>
+          </div>
+          <div class="item-price">25k</div>
+        </div>
+        <div class="item-foot">
+          <span class="item-badge">Được yêu thích</span>
+          <span>Size M</span>
+        </div>
+      </div>
+
+      <div class="item-card" data-category="trasua">
+        <div class="item-image" style="background-image:url('https://via.placeholder.com/400x300?text=Thai+Xanh');"></div>
+        <div class="item-info">
+          <div>
+            <div class="item-name">Trà sữa Thái xanh</div>
+            <div class="item-tag">Mát, thơm trà Thái</div>
+          </div>
+          <div class="item-price">25k</div>
+        </div>
+        <div class="item-foot">
+          <span class="item-badge">Hot</span>
+          <span>Size M</span>
+        </div>
+      </div>
+
+      <div class="item-card" data-category="trasua">
+        <div class="item-image" style="background-image:url('https://via.placeholder.com/400x300?text=Thai+Do');"></div>
+        <div class="item-info">
+          <div>
+            <div class="item-name">Trà sữa Thái đỏ</div>
+            <div class="item-tag">Ngọt dịu, dễ uống</div>
+          </div>
+          <div class="item-price">25k</div>
+        </div>
+        <div class="item-foot">
+          <span class="item-badge">Signature</span>
+          <span>Size M</span>
+        </div>
+      </div>
+
+      <div class="item-card" data-category="trasua">
+        <div class="item-image" style="background-image:url('https://via.placeholder.com/400x300?text=Oolong+Lai');"></div>
+        <div class="item-info">
+          <div>
+            <div class="item-name">Trà sữa Oolong Lài</div>
+            <div class="item-tag">Thơm hoa lài, ít ngấy</div>
+          </div>
+          <div class="item-price">25k</div>
+        </div>
+        <div class="item-foot">
+          <span class="item-badge">Hương trà</span>
+          <span>Size M</span>
+        </div>
+      </div>
+
+      <div class="item-card" data-category="trasua">
+        <div class="item-image" style="background-image:url('https://via.placeholder.com/400x300?text=Kem+Trung');"></div>
+        <div class="item-info">
+          <div>
+            <div class="item-name">Trà sữa kem trứng</div>
+            <div class="item-tag">Lớp kem trứng béo mịn</div>
+          </div>
+          <div class="item-price">27k</div>
+        </div>
+        <div class="item-foot">
+          <span class="item-badge">Đặc biệt</span>
+          <span>Size M</span>
+        </div>
+      </div>
+
+      <!-- TRÀ TRÁI CÂY -->
+      <div class="item-card" data-category="tratraicay">
+        <div class="item-image" style="background-image:url('https://via.placeholder.com/400x300?text=Tra+Dau+Tay');"></div>
+        <div class="item-info">
+          <div>
+            <div class="item-name">Trà dâu tây</div>
+            <div class="item-tag">Chua ngọt, thơm dâu tươi</div>
+          </div>
+          <div class="item-price">25k</div>
+        </div>
+        <div class="item-foot">
+          <span class="item-badge">Trái cây</span>
+          <span>Size M</span>
+        </div>
+      </div>
+
+      <div class="item-card" data-category="tratraicay">
+        <div class="item-image" style="background-image:url('https://via.placeholder.com/400x300?text=Xoai+Chanh+Day');"></div>
+        <div class="item-info">
+          <div>
+            <div class="item-name">Trà xoài chanh dây</div>
+            <div class="item-tag">Mát, nhiều vitamin</div>
+          </div>
+          <div class="item-price">25k</div>
+        </div>
+        <div class="item-foot">
+          <span class="item-badge">Best seller</span>
+          <span>Size M</span>
+        </div>
+      </div>
+
+      <div class="item-card" data-category="tratraicay">
+        <div class="item-image" style="background-image:url('https://via.placeholder.com/400x300?text=Viet+Quat+Nha+Dam');"></div>
+        <div class="item-info">
+          <div>
+            <div class="item-name">Trà việt quất nha đam</div>
+            <div class="item-tag">Thanh mát, nha đam giòn</div>
+          </div>
+          <div class="item-price">25k</div>
+        </div>
+        <div class="item-foot">
+          <span class="item-badge">Giải khát</span>
+          <span>Size M</span>
+        </div>
+      </div>
+
+      <div class="item-card" data-category="tratraicay">
+        <div class="item-image" style="background-image:url('https://via.placeholder.com/400x300?text=Dao+Cam+Sa');"></div>
+        <div class="item-info">
+          <div>
+            <div class="item-name">Trà đào cam sả</div>
+            <div class="item-tag">Thơm cam & sả</div>
+          </div>
+          <div class="item-price">27k</div>
+        </div>
+        <div class="item-foot">
+          <span class="item-badge">Best seller</span>
+          <span>Size M</span>
+        </div>
+      </div>
+
+      <!-- CÀ PHÊ -->
+      <div class="item-card" data-category="caphe">
+        <div class="item-image" style="background-image:url('https://via.placeholder.com/400x300?text=Ca+Phe+Da');"></div>
+        <div class="item-info">
+          <div>
+            <div class="item-name">Cà phê đá</div>
+            <div class="item-tag">Đậm vị cà phê Việt</div>
+          </div>
+          <div class="item-price">14k</div>
+        </div>
+        <div class="item-foot">
+          <span class="item-badge">Cà phê</span>
+          <span>Ly đá</span>
+        </div>
+      </div>
+
+      <div class="item-card" data-category="caphe">
+        <div class="item-image" style="background-image:url('https://via.placeholder.com/400x300?text=Ca+Phe+Sua+Da');"></div>
+        <div class="item-info">
+          <div>
+            <div class="item-name">Cà phê sữa đá</div>
+            <div class="item-tag">Đậm đà, béo sữa</div>
+          </div>
+          <div class="item-price">16k</div>
+        </div>
+        <div class="item-foot">
+          <span class="item-badge">Phổ biến</span>
+          <span>Ly đá</span>
+        </div>
+      </div>
+
+      <div class="item-card" data-category="caphe">
+        <div class="item-image" style="background-image:url('https://via.placeholder.com/400x300?text=Bac+Xiu');"></div>
+        <div class="item-info">
+          <div>
+            <div class="item-name">Bạc xỉu</div>
+            <div class="item-tag">Nhiều sữa, ít cà</div>
+          </div>
+          <div class="item-price">18k</div>
+        </div>
+        <div class="item-foot">
+          <span class="item-badge">Ngọt</span>
+          <span>Ly đá</span>
+        </div>
+      </div>
+
+      <!-- MATCHA / LATTE -->
+      <div class="item-card" data-category="latte">
+        <div class="item-image" style="background-image:url('https://via.placeholder.com/400x300?text=Matcha+Latte');"></div>
+        <div class="item-info">
+          <div>
+            <div class="item-name">Matcha latte</div>
+            <div class="item-tag">Thơm matcha, hậu vị trà</div>
+          </div>
+          <div class="item-price">25k</div>
+        </div>
+        <div class="item-foot">
+          <span class="item-badge">Matcha</span>
+          <span>Ly lạnh</span>
+        </div>
+      </div>
+
+      <div class="item-card" data-category="latte">
+        <div class="item-image" style="background-image:url('https://via.placeholder.com/400x300?text=Matcha+Coffee');"></div>
+        <div class="item-info">
+          <div>
+            <div class="item-name">Matcha coffee</div>
+            <div class="item-tag">Mix matcha & cà phê</div>
+          </div>
+          <div class="item-price">27k</div>
+        </div>
+        <div class="item-foot">
+          <span class="item-badge">Độc đáo</span>
+          <span>Ly lạnh</span>
+        </div>
+      </div>
+
+      <!-- SỮA CHUA -->
+      <div class="item-card" data-category="suachua">
+        <div class="item-image" style="background-image:url('https://via.placeholder.com/400x300?text=Sua+Chua+Dau');"></div>
+        <div class="item-info">
+          <div>
+            <div class="item-name">Sữa chua dâu</div>
+            <div class="item-tag">Chua nhẹ, topping dâu</div>
+          </div>
+          <div class="item-price">25k</div>
+        </div>
+        <div class="item-foot">
+          <span class="item-badge">Sữa chua</span>
+          <span>Ly lạnh</span>
+        </div>
+      </div>
+
+      <div class="item-card" data-category="suachua">
+        <div class="item-image" style="background-image:url('https://via.placeholder.com/400x300?text=Sua+Chua+Viet+Quat');"></div>
+        <div class="item-info">
+          <div>
+            <div class="item-name">Sữa chua việt quất</div>
+            <div class="item-tag">Màu tím xinh xắn</div>
+          </div>
+          <div class="item-price">25k</div>
+        </div>
+        <div class="item-foot">
+          <span class="item-badge">Trái cây</span>
+          <span>Ly lạnh</span>
+        </div>
+      </div>
+
+      <!-- TOPPING -->
+      <div class="item-card" data-category="topping">
+        <div class="item-image" style="background-image:url('https://via.placeholder.com/400x300?text=Tran+Chau+Den');"></div>
+        <div class="item-info">
+          <div>
+            <div class="item-name">Trân châu đen / giòn</div>
+            <div class="item-tag">Thêm vào mọi loại trà sữa</div>
+          </div>
+          <div class="item-price">5k</div>
+        </div>
+        <div class="item-foot">
+          <span class="item-badge">Topping</span>
+          <span>1 phần</span>
+        </div>
+      </div>
+
+      <div class="item-card" data-category="topping">
+        <div class="item-image" style="background-image:url('https://via.placeholder.com/400x300?text=Pho+Mai+Vien');"></div>
+        <div class="item-info">
+          <div>
+            <div class="item-name">Phô mai viên / thạch phô mai</div>
+            <div class="item-tag">Béo thơm, nhai vui miệng</div>
+          </div>
+          <div class="item-price">3k–5k</div>
+        </div>
+        <div class="item-foot">
+          <span class="item-badge">Topping</span>
+          <span>1 phần</span>
+        </div>
+      </div>
+
+      <div class="item-card" data-category="topping">
+        <div class="item-image" style="background-image:url('https://via.placeholder.com/400x300?text=Kem+Deo');"></div>
+        <div class="item-info">
+          <div>
+            <div class="item-name">Kem dẻo</div>
+            <div class="item-tag">Mát lạnh, béo nhẹ</div>
+          </div>
+          <div class="item-price">10k</div>
+        </div>
+        <div class="item-foot">
+          <span class="item-badge">Đặc biệt</span>
+          <span>1 phần</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-block">
+    <div class="contact-left">
+      <h2>Đặt món Tiệm Trà Loan</h2>
+      <p>
+        Gọi trực tiếp hoặc nhắn tin để đặt nước. Tiệm nhận pha chế cho lớp học,
+        buổi họp, sinh nhật & tụ tập bạn bè trong khu vực.
+      </p>
+      <p style="margin-top:6px;">
+        📍42 Trần Bình Trọng, Ấp Hải Sơn, Xã Phước Hải
+      </p>
+    </div>
+    <div class="contact-right">
+      <a href="tel:0972063913">📞 Liên Hệ: 0972.063.913 Hoặc 0908.000.987</a>
+      <span style="font-size:12px;opacity:0.9;"><a href="https://www.facebook.com/profile.php?id=61585039253522"
+   target="_blank"
+   style="color:#ffffff; text-decoration:none;">
+  Trang Page
+</a>
+</span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © Tiệm Trà Loan – Thiết kế menu tone xanh lá. Bạn có thể chỉnh sửa nội dung, giá & hình theo ý mình.
+</footer>
+
+<script>
+  // Lọc theo danh mục giống style laboong
+  const buttons = document.querySelectorAll('.category-btn');
+  const cards = document.querySelectorAll('.item-card');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const category = btn.dataset.category;
+
+      cards.forEach(card => {
+        const c = card.dataset.category;
+        if (category === 'all' || c === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
